@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
          /* Navigation Hover Effect */
-         nav a { 
+        nav a {
             position: relative;
             display: inline-block;
             font-size: 1em;
@@ -53,6 +53,42 @@
         .contact {
             text-align: left;
         }
+
+        /* 3D Carousel Effect */
+        .carousel-inner {
+            perspective: 1000px;
+        }
+
+        .carousel-item {
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        .carousel-item-next.carousel-item-left,
+        .carousel-item-prev.carousel-item-right {
+            transform: rotateY(60deg);
+        }
+
+        .carousel-item-next,
+        .carousel-item-prev {
+            transform: rotateY(-60deg);
+        }
+
+        .carousel-item.active {
+            transform: rotateY(0deg);
+        }
+
+        /* Image Hover Effect */
+        .carousel-inner .carousel-item img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .carousel-inner .carousel-item img:hover {
+            transform: scale(1.05); /* Slight zoom */
+            opacity: 0.8; /* Slight fade */
+        }
+
     </style>
 </head>
 <body>
@@ -224,87 +260,97 @@
         </div>
     </div>
     
-
-
-      <section>
-        <div class="container"> 
-        <h3>Projects</h3>
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
+ <!-- Projects Section with 3D Carousel -->
+ <section>
+  <div class="container"> 
+      <h3>Projects</h3>
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./tin-dog.png" class="d-block w-100" alt="...">
-              </div>           
-            </div>  
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">Tin-Dog(tinder for dogs)</h3>
-              <p>Tindog is a website created to replicate Tinder but for dogs, to help pet dogs find there matches, 
-                its a website i created as a project on my web development bootcamp on Udemy.</p>
-                <p>Stacks used: HTML CSS Bootstrap</p>
-        </div>
-        <a class="btn btn-primary" href="https://hozei.github.io/TinDog/" role="button" margin-bottom = "20px">View Project</a>
-    
-        </div>
-      </section>
-
-      <section>
-        <div class="container"> 
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="./sands hotel.png" class="d-block w-100" alt="sands Hotel">
-              </div>           
-            </div>  
-          </div>
-          <div>
-            <h3 class="fs-2 text-body-emphasis">Sands hotel website</h3>
-              <p>This is a fun website that i created for a hotel website, trying to practice my web design skills in UI and UX, using Canva software.</p>
-                <p>software used: Canva </p>
-        </div>
-        <a class="btn btn-primary" href=" https://hozeicanva.my.canva.site/ " role="button">View Project</a>
-    
-        </div>
-      </section>
-
-      <section>
-        <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                
-                <div class="col-md-4">
-                    <h3 class="contact-me" id="contact">Contact Me</h3>
-                    <form class="row g-3" action="mailto:hosea.chris9@gmail.com" method="post" enctype="text/plain">
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </div>
-                    </form>
+                  <img src="./tin-dog.png" class="d-block w-100" alt="Tin-Dog Project">
+                  <div class="carousel-caption">
+                      <h3>Tin-Dog (Tinder for Dogs)</h3>
+                      <p>Tindog is a website created to replicate Tinder but for dogs...</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                  <img src="./sands hotel.png" class="d-block w-100" alt="Sands Hotel Project">
+                  <div class="carousel-caption">
+                      <h3>Sands Hotel Website</h3>
+                      <p>This is a fun website that I created for a hotel...</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./ubuntu aquatics.png" class="d-block w-100" alt="Sands Hotel Project">
+                <div class="carousel-caption">
+                    <h3>Ubuntu Aquatics cc website</h3>
+                    <p>This website is for Ubuntu Aquatics cc a local aquaponics business in Swakopmund Namibia that I did for their company for free.</p>
                 </div>
-    
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Hozei"><svg class="bi" width="24" height="24"><use xlink:href="#github"></use></svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/_hozei_?igsh=aWF2N3B2Yzdvcjll"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/hosea.noabeb.3"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-                </ul>
-            </footer>
-            
-            <div class="text-center py-3">
-                <span class="text-body-secondary">© 2024 Hosea Noabeb, All rights reserved</span>
+            </div>
+            <div class="carousel-item">
+              <img src="./kwl.png" class="d-block w-100" alt="Kavango west lodge">
+              <div class="carousel-caption">
+                  <h3>Kavango west lodge website</h3>
+                  <p>This is a fully deployed website that i created for Kavango west lodge, a lodge located in Nkurenkuru town.</p>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./hozei_pcs sneek.png" class="d-block w-100" alt="Online pcs Project">
+            <div class="carousel-caption">
+                <h3>Hozei pcs</h3>
+                <p>This is a website i created for an online shop using laravel framework. </p>
             </div>
         </div>
-    </section>
-    
-    
+              <!-- Add more carousel items for other projects as needed -->
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+  </div>
+</section>
+   
+<section>
+  <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-5 my-4 border-top">
+          <div class="col-md-6">
+              <h3 class="contact-me" id="contact">Contact Me</h3>
+              <form class="row g-3" action="mailto:hosea.chris9@gmail.com" method="post" enctype="text/plain">
+                  <div class="col-md-12">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" class="form-control form-control-lg" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-12">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control form-control-lg" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="col-12">
+                      <label for="message" class="form-label">Message</label>
+                      <textarea class="form-control form-control-lg" id="message" rows="5" placeholder="Your Message" required></textarea>
+                  </div>
+                  <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                  </div>
+              </form>
+          </div>
+
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+              <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Hozei"><svg class="bi" width="24" height="24"><use xlink:href="#github"></use></svg></a></li>
+              <li class="ms-3"><a class="text-body-secondary" href="https://www.instagram.com/_hozei_?igsh=aWF2N3B2Yzdvcjll"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+              <li class="ms-3"><a class="text-body-secondary" href="https://www.facebook.com/hosea.noabeb.3"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+      </footer>
+
+      <div class="text-center py-3">
+          <span class="text-body-secondary">© 2024 Hosea Noabeb, All rights reserved</span>
+      </div>
+  </div>
+</section> 
     
       <!-- JavaScript to Handle Theme Toggle -->
     <script>
